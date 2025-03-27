@@ -80,9 +80,9 @@ in stdenv.mkDerivation rec {
 
   preBuild = ''
     ln -s waku.nimble waku.nims
+    mkdir ./vendor/.nimble
     pushd vendor/nimbus-build-system/vendor/Nim
     mkdir dist
-    mkdir ./vendor/.nimble
     cp -r ${callPackage ./nimble.nix {}}    dist/nimble
     chmod 777 -R dist/nimble
     mkdir -p dist/nimble/dist
