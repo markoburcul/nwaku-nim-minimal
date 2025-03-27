@@ -55,6 +55,13 @@
           androidArch = "musl64";
           zerokitPkg = zerokit.packages.${system}.zerokit-android-amd64;
         };
+        hello-world = pkgs.callPackage ./nix/default.nix { 
+          inherit stableSystems;
+          src = self;
+          targets = ["build-hello-world-nim-directly"]; 
+          androidArch = "aarch64-linux-android";
+          zerokitPkg = zerokit.packages.${system}.zerokit-android-arm64;
+        };
         default = libwaku-android-arm64;
       });
 
