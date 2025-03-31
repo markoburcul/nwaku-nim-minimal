@@ -41,6 +41,7 @@ while IFS= read -r submodule_path; do
     # Create the .nimble-link file with the absolute path
     nimble_link_file="$submodule_dir/${submodule_name}.nimble-link"
     echo "$submodule_path" > "$nimble_link_file"
+    echo "$submodule_path" >> "$nimble_link_file"
 done < "$output_file"
 
 echo "Nimble packages prepared in $nimble_pkgs_dir"

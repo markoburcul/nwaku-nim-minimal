@@ -4,7 +4,7 @@
   src ? ../.,
   targets ? ["libwaku-android-arm64"],
   verbosity ? 2,
-  useSystemNim ? false,
+  useSystemNim ? true,
   quickAndDirty ? true,
   stableSystems ? [
     "x86_64-linux" "aarch64-linux"
