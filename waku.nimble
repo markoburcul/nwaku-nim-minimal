@@ -24,8 +24,7 @@ requires "nim >= 2.0.8",
   "presto",
   "regex",
   "db_connector",
-  "minilru",
-  "quic"
+  "minilru"
 
 proc buildMobileAndroid(params = "") =
   let outDir = "build/android"

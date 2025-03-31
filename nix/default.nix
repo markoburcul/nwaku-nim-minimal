@@ -76,11 +76,12 @@ in stdenv.mkDerivation rec {
   configurePhase = ''
     patchShebangs . vendor/nimbus-build-system > /dev/null
     make nimbus-build-system-paths
+    # Generate ./vendor/.nimble dir structure
+    ./nix/generate-nimble-paths.sh
   '';
 
   preBuild = ''
     ln -s waku.nimble waku.nims
-    mkdir ./vendor/.nimble
     pushd vendor/nimbus-build-system/vendor/Nim
     mkdir dist
     cp -r ${callPackage ./nimble.nix {}}    dist/nimble
